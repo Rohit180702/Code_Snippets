@@ -1,0 +1,17 @@
+int lowerbound(vector<int>&nums, int target)
+    {
+        int ans = nums.size();
+        int low = 0, high = nums.size()-1;
+        while(low<=high)
+        {
+            int mid = low + (high-low)/2;
+            if(nums[mid]>=target) {   //main logic
+                ans = mid;
+                high = mid-1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+        return ans;
+    }
